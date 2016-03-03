@@ -31,14 +31,18 @@ class NzContactMe
         ];
         $l = locate_template($templates);
 
+        ob_start();
         if (!$l) {
-            
-            include plugin_dir_path(__FILE__) . "nz-contact-me-form.php" ;
-            
+
+            include plugin_dir_path(__FILE__) . "nz-contact-me-form.php";
         } else {
 
             include $l;
         }
+
+        $output = ob_get_clean();
+        
+        return $output;
     }
 
     function enqueue_scripts()
