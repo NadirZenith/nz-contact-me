@@ -14,7 +14,10 @@
                 // get values from FORM
                 var name = $("input#name").val();
                 var email = $("input#email").val();
-                var phone = $("input#phone").val();
+                var phone = '';
+                if ($("input#phone").length) {
+                    phone = $("input#phone").val();
+                }
                 var message = $("textarea#message").val();
                 var firstName = name; // For Success/Failure Message
                 // Check for white space in name for Success/Fail message
@@ -23,7 +26,7 @@
                 }
                 $.ajax({
                     /*url: "././mail/contact_me.php",*/
-                    url: window.location.href ,
+                    url: window.location.href,
                     type: "POST",
                     data: {
                         name: name,

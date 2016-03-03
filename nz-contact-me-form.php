@@ -1,12 +1,4 @@
-<?php
-d('plugin');
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
 <form name="sentMessage" id="contactForm" novalidate>
     <div class="row control-group">
         <div class="form-group col-xs-12 floating-label-form-group controls">
@@ -22,13 +14,15 @@ d('plugin');
             <p class="help-block text-danger"></p>
         </div>
     </div>
-    <div class="row control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-            <label>Phone Number</label>
-            <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
-            <p class="help-block text-danger"></p>
+    <?php if (!empty(get_option('nz_contact_me_use_phone'))) : ?>
+        <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>Phone Number</label>
+                <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
+                <p class="help-block text-danger"></p>
+            </div>
         </div>
-    </div>
+    <?php endif; ?>
     <div class="row control-group">
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label>Message</label>
