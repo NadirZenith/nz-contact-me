@@ -14,6 +14,7 @@
 class NzContactMe
 {
 
+    protected $version = '1.0';
     protected $name = 'nz-contact-me';
 
     public function __construct()
