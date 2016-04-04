@@ -1,9 +1,5 @@
 
 <form name="sentMessage" id="contactForm" novalidate>
-    <?php
-    d(get_locale());
-    d(__('Send', 'nz-contact-me'));
-    ?>
     <div class="row control-group">
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label><?php _e('Name', 'nz-contact-me')?></label>
