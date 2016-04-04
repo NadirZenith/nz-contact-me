@@ -21,7 +21,6 @@ class NzContactMe
     {
         $this->loadDependencies();
 
-
         $admin = new NzContactMeAdmin();
         add_action('admin_menu', array($admin, 'create_menu'));
         add_action('admin_init', array($admin, 'settings_api_init'));
@@ -29,7 +28,13 @@ class NzContactMe
         /* $this->add('action', $obect, 'method'); */
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
         add_action('parse_request', array($this, 'parse_form_submission'));
+        add_action('plugins_loaded', array($this, 'loadTextDomain'));
         add_shortcode('nz-contact-me', array($this, 'shortcode'));
+    }
+
+    function loadTextDomain()
+    {
+        load_plugin_textdomain($this->name, false, plugin_basename(dirname(__FILE__)) . '/languages');
     }
 
     function loadDependencies()
